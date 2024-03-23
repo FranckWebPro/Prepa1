@@ -3,7 +3,6 @@ const subtitles = document.getElementsByClassName('subtitles');
 const projects = document.getElementsByTagName('article');
 const projectLists = document.getElementsByClassName('projectList');
 const projectButtons = document.getElementsByClassName('projectButton');
-const body = document.getElementsByTagName('body');
 
 let i = 0;
 
@@ -34,7 +33,7 @@ for (let subtitle of subtitles) {
             eachtitle.style.color = `#${newColor}`;
         }
     });
-};
+}
 
 const createAddSkillHtml = (element) => {
     const newLabel = document.createElement('label');
@@ -66,19 +65,23 @@ for (let project of projects) {
 }
 
 const jokes = ["Pourquoi les canards sont toujours à l'heure ? \n Parce qu’ils sont dans l’étang.",
-"Avec quoi ramasse-t-on la papaye ? \n Avec une foufourche.",
-"Qu'est ce qui n'est pas un steak ? \n Une pastèque."];
+    "Avec quoi ramasse-t-on la papaye ? \n Avec une foufourche.",
+    "Qu'est ce qui n'est pas un steak ? \n Une pastèque."];
 
 const popUpAppear = () => {
     const popUpContainer = document.createElement('div');
     popUpContainer.classList.add('popUp');
     const joke = document.createElement('p');
-    joke.innerText = jokes[(Math.floor(Math.random() * jokes.length))];
+    const randomJoke= jokes[(Math.floor(Math.random() * jokes.length))];
+     joke.innerText = randomJoke;
     console.log(joke);
     popUpContainer.appendChild(joke);
+    document.body.appendChild(popUpContainer);
     popUpContainer.style.display = "flex";
-    const hidePopup = popUpContainer.style.display = "none";
-    setTimeout(hidePopup, 2000);
+    setTimeout(() => {
+        popUpContainer.style.display = "none";
+        document.body.removeChild(popUpContainer);
+    }, 3000);
 }
 
-setInterval(popUpAppear, 10000);
+setInterval(popUpAppear, 13000);

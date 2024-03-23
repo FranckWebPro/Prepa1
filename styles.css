@@ -209,16 +209,20 @@ button {
     border-radius: 10px;
 }
 
-.joke {
-    position: absolute;
+.popUp {
+    position: fixed;
     top: 25%;
     left: 25%;
     width: 50%;
     height: 50%;
+    padding: 2rem;
     background-color: white;
-    display: none;
     justify-content: center;
     align-items: center;
+    display: none;
+    z-index: 1000;
+    border: 3px solid var(--textColor);
+    border-radius: 40px;
 }
 
 @media screen and (min-width: 768px) {
